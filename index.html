@@ -203,6 +203,18 @@
 
       renderSquares();
     });
+
+     document.addEventListener('click', function(event) {
+  var targetElement = event.target; // Получаем элемент, по которому было произведено нажатие
+
+  // Проверяем, является ли целевой элемент текстовым полем ввода
+  var isInput = targetElement.tagName === 'INPUT' && targetElement.type === 'text';
+
+  // Если нажатие было по другой части экрана и клавиатура открыта, скрываем клавиатуру
+  if (!isInput && document.activeElement === targetElement) {
+    targetElement.blur(); // Скрываем клавиатуру, убирая фокус с текстового поля ввода
+  }
+});
   </script>
 </body>
 </html>
