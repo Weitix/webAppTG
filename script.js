@@ -1,12 +1,12 @@
     
     
-    let tg = window.Telegram.window;
-    tg.expand();
+    //let tg = window.Telegram.window;
+    //tg.expand();
     
-    Telegram.WebApp.onEvent('gameEvent', function(data) {
+    //Telegram.WebApp.onEvent('gameEvent', function(data) {
       // Отправка данных на бота
-      Telegram.WebApp.sendData(data);
-    });
+      //Telegram.WebApp.sendData(data);
+    //});
 
 // Получаем ID пользователя из URL
 let params = new URLSearchParams(window.location.search);
