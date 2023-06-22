@@ -5,93 +5,15 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
    <title>Test Telegram WebApps API</title>
-   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-   <style>
-     body {
-      font-family: Arial, sans-serif;
-      color: var(--tg-theme-text-color);
-      background: var(--tg-theme-bg-color);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 10px;
-    }
-
-    .hint {
-      color: var(--tg-theme-hint-color);
-    }
-
-    .link {
-      color: var(--tg-theme-link-color);
-    }
-
-    .button {
-      background: var(--tg-theme-button-color);
-      color: var(--tg-theme-button-text-color);
-      border: none;
-      font-size: 18px;
-    }
-
-    .button:not(:last-child) {
-      margin-bottom: 20px
-    }
-
-    #usercard {
-      text-align: center;
-    }
-
-    header {
-      padding: 20px;
-      background-color: #f5f5f5;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    #container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 10px;
-      gap: 10px;
-    }
-
-    .row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      width: 100%;
-    }
-
-    .square {
-      width: 100px;
-      background-color: #4d5176;
-      margin: 5px;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .square img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .square h2 {
-      margin-top: 10px;
-      text-align: center;
-    }
-   </style>
+   <link rel="stylesheet" href="style.css">
+   <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
 </head>
 <body>
   <header>
-    <div id="usercard"></div>
-    <h1>CoGaming</h1>
+    <div id="usercard">
+      <p id="userId"></p>
+    </div>
+    <h1>Test</h1>
     <input type="text" id="searchInput" placeholder="Search...">
   </header>
   <div id="container"></div>
@@ -100,121 +22,6 @@
   <p class="hint">Some little hint</p>
   <button id="btn" class="button">Show/Hide Main Button</button>
   <button id="btnED" class="button">Enable/Disable Main Button</button>
-
-  <script>
-    let tg = window.Telegram.WebApp;
-    tg.expand();
-
-    tg.MainButton.text = "Changed Text";
-    tg.MainButton.setText("Changed Text1");
-    tg.MainButton.textColor = "#F55353";
-    tg.MainButton.color = "#143F6B";
-    tg.MainButton.setParams({"color": "#143F6B"});
-
-    let btn = document.getElementById("btn");
-    btn.addEventListener('click', function(){
-      if (tg.MainButton.isVisible){
-        tg.MainButton.hide();
-      }
-      else{
-        tg.MainButton.show();
-      }
-    });
-
-    let btnED = document.getElementById("btnED");
-    btnED.addEventListener('click', function(){
-      if (tg.MainButton.isActive){
-        tg.MainButton.setParams({"color": "#E0FFFF"});
-        tg.MainButton.disable();
-      }
-      else{
-        tg.MainButton.setParams({"color": "#143F6B"});
-        tg.MainButton.enable();
-      }
-    });
-
-    Telegram.WebApp.onEvent('mainButtonClicked', function(){
-      tg.sendData("some string that we need to send");
-    });
-
-    let usercard = document.getElementById("usercard");
-    if (tg.initDataUnsafe.user) {
-      let profName = document.createElement('p');
-      profName.innerText = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name} ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
-      usercard.appendChild(profName);
-
-      let userid = document.createElement('p');
-      userid.innerText = `${tg.initDataUnsafe.user.id}`;
-      usercard.appendChild(userid);
-    }
-
-    const squares = [
-      { title: 'Игра 1', image: 'image1.jpg' },
-      { title: 'Игра 2', image: 'image2.jpg' },
-      { title: 'Игра 3', image: 'image3.jpg' },
-      { title: 'Игра 4', image: 'image4.jpg' },
-      // Add more squares as needed
-    ];
-
-    function createSquare(square) {
-      const div = document.createElement('div');
-      div.className = 'square';
-
-      const img = document.createElement('img');
-      img.src = square.image;
-      img.alt = square.title;
-
-      const title = document.createElement('h2');
-      title.textContent = square.title;
-
-      div.appendChild(img);
-      div.appendChild(title);
-
-      return div;
-    }
-
-    function renderSquares() {
-      const container = document.getElementById('container');
-      container.innerHTML = '';
-
-      const searchInput = document.getElementById('searchInput');
-      const searchText = searchInput.value.toLowerCase();
-
-      const filteredSquares = squares.filter(square =>
-        square.title.toLowerCase().includes(searchText)
-      );
-
-      let row;
-      filteredSquares.forEach((square, index) => {
-        if (index % 2 === 0) {
-          row = document.createElement('div');
-          row.className = 'row';
-          container.appendChild(row);
-        }
-
-        const div = createSquare(square);
-        row.appendChild(div);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const searchInput = document.getElementById('searchInput');
-      searchInput.addEventListener('input', renderSquares);
-
-      renderSquares();
-    });
-
-     document.addEventListener('click', function(event) {
-  var targetElement = event.target; // Получаем элемент, по которому было произведено нажатие
-
-  // Проверяем, является ли целевой элемент текстовым полем ввода
-  var isInput = targetElement.tagName === 'INPUT' && targetElement.type === 'text';
-
-  // Если нажатие было по другой части экрана и клавиатура открыта, скрываем клавиатуру
-  if (!isInput && document.activeElement === targetElement) {
-    targetElement.blur(); // Скрываем клавиатуру, убирая фокус с текстового поля ввода
-  }
-});
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
