@@ -1,7 +1,7 @@
     
     
-    let tg = window.Telegram.window;
-    tg.expand();
+   //let tg = window.Telegram.window;
+    //tg.expand();
     
     let params = new URLSearchParams(window.location.search);
     let userId = params.get('userid');
@@ -9,48 +9,7 @@
     console.log("User ID:", userId);
     document.getElementById("userId").innerText = "User ID: " + userId;
     
-    tg.MainButton.text = "Changed Text";
-    tg.MainButton.setText("Changed Text1");
-    tg.MainButton.textColor = "#F55353";
-    tg.MainButton.color = "#143F6B";
-    tg.MainButton.setParams({"color": "#143F6B"});
-
-    let btn = document.getElementById("btn");
-    btn.addEventListener('click', function(){
-      if (tg.MainButton.isVisible){
-        tg.MainButton.hide();
-      }
-      else{
-        tg.MainButton.show();
-      }
-    });
-
-    let btnED = document.getElementById("btnED");
-    btnED.addEventListener('click', function(){
-      if (tg.MainButton.isActive){
-        tg.MainButton.setParams({"color": "#E0FFFF"});
-        tg.MainButton.disable();
-      }
-      else{
-        tg.MainButton.setParams({"color": "#143F6B"});
-        tg.MainButton.enable();
-      }
-    });
-
-    Telegram.WebApp.onEvent('mainButtonClicked', function(){
-      tg.sendData("some string that we need to send");
-    });
-
-    let usercard = document.getElementById("usercard");
-    if (tg.initDataUnsafe.user) {
-      let profName = document.createElement('p');
-      profName.innerText = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name} ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
-      usercard.appendChild(profName);
-
-      let userid = document.createElement('p');
-      userid.innerText = `${tg.initDataUnsafe.user.id}`;
-      usercard.appendChild(userid);
-    }
+    //
 
     const squares = [
       { title: 'Игра 1', image: 'image1.jpg' },
