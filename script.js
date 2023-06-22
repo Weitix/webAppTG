@@ -3,11 +3,13 @@
    //let tg = window.Telegram.window;
     //tg.expand();
     
-    let params = new URLSearchParams(window.location.search);
-    let userId = params.get('userid');
- 
-    console.log("User ID:", userId);
-    document.getElementById("userId").innerText = "User ID: " + userId;
+// Получаем ID пользователя из URL
+let params = new URLSearchParams(window.location.search);
+let userId = params.get('userid');
+
+// Отображаем ID пользователя на странице
+console.log("User ID:", userId);
+document.getElementById("userId").innerText = "User ID: " + userId;
     
     //
 
