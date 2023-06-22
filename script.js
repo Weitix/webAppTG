@@ -16,7 +16,7 @@ TelegramGameProxy,
 console.log("User ID:", userId);
 document.getElementById("userId").innerText = "User ID: " + userId;
     
-var data = { score: 10, level: 5 };
+var data = { score: 228, level: 5 };
 Telegram.WebApp.sendData(data);
 
 window.TelegramGameProxy_receiveEvent = receiveEvent;
