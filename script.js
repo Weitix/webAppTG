@@ -1,14 +1,14 @@
 
     //Telegram.WebApp.onEvent('gameEvent', function(data) {
-      // Отправка данных на бота
+     
       //Telegram.WebApp.sendData(data);
     //});
 
-// Получаем ID пользователя из URL
+
 let params = new URLSearchParams(window.location.search);
 let userId = params.get('userid');
 TelegramGameProxy,
-// Отображаем ID пользователя на странице
+
 console.log("User ID:", userId);
 document.getElementById("userId").innerText = "User ID: " + userId;
     
@@ -89,13 +89,13 @@ window.TelegramGameProxy_receiveEvent = receiveEvent;
     });
 
      document.addEventListener('click', function(event) {
-  var targetElement = event.target; // Получаем элемент, по которому было произведено нажатие
+  var targetElement = event.target;
 
-  // Проверяем, является ли целевой элемент текстовым полем ввода
+  
   var isInput = targetElement.tagName === 'INPUT' && targetElement.type === 'text';
 
-  // Если нажатие было по другой части экрана и клавиатура открыта, скрываем клавиатуру
+  
   if (!isInput && document.activeElement === targetElement) {
-    targetElement.blur(); // Скрываем клавиатуру, убирая фокус с текстового поля ввода
+    targetElement.blur(); 
   }
 });
