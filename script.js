@@ -1,7 +1,7 @@
     
     
-   //let tg = window.Telegram.window;
-    //tg.expand();
+    let tg = window.Telegram.window;
+    tg.expand();
     
     Telegram.WebApp.onEvent('gameEvent', function(data) {
       // Отправка данных на бота
