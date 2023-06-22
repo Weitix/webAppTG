@@ -3,15 +3,39 @@
    //let tg = window.Telegram.window;
     //tg.expand();
     
+    Telegram.WebApp.onEvent('gameEvent', function(data) {
+      // Отправка данных на бота
+      Telegram.WebApp.sendData(data);
+    });
+
 // Получаем ID пользователя из URL
 let params = new URLSearchParams(window.location.search);
 let userId = params.get('userid');
-
+TelegramGameProxy,
 // Отображаем ID пользователя на странице
 console.log("User ID:", userId);
 document.getElementById("userId").innerText = "User ID: " + userId;
     
-    //
+var data = { score: 10, level: 5 };
+Telegram.WebApp.sendData(data);
+
+window.TelegramGameProxy_receiveEvent = receiveEvent;
+
+  window.TelegramGameProxy = {
+    initParams: initParams,
+    receiveEvent: receiveEvent,
+    onEvent: onEvent,
+    shareScore: function () {
+      postEvent('share_score', function (error) {
+        if (error) {
+          var shareScoreUrl = initParams.tgShareScoreUrl;
+          if (shareScoreUrl) {
+            openProtoUrl(shareScoreUrl);
+          }
+        }
+      });
+    }
+  };
 
     const squares = [
       { title: 'Игра 1', image: 'image1.jpg' },
