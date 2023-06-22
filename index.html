@@ -104,7 +104,11 @@
   <script>
     let tg = window.Telegram.WebApp;
     tg.expand();
-
+     
+      let params = new URLSearchParams(window.location.search);
+    let userid = params.get('userid');
+    
+    console.log("User ID:", userid);
     tg.MainButton.text = "Changed Text";
     tg.MainButton.setText("Changed Text1");
     tg.MainButton.textColor = "#F55353";
