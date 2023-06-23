@@ -23,6 +23,18 @@
   <p class="hint">Some little hint</p>
   <button id="btn" class="button">Show/Hide Main Button</button>
   <button id="btnED" class="button">Enable/Disable Main Button</button>
+    <button id="sendButton">Отправить данные</button>
+
+  <script>
+    // Обработчик события нажатия на кнопку
+    document.getElementById("sendButton").addEventListener("click", function() {
+      // Создание данных для отправки
+      var data = { score: 1111, level: 5 };
+
+      // Отправка данных на бота
+      Telegram.WebApp.sendData(data);
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
