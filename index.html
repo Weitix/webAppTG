@@ -25,6 +25,19 @@
     <button id="sendButton">Отправить данные</button>
    <button onclick="TelegramGameProxy.sendData()">Share score</button>
   <script>
+  let tg = window.Telegram.WebApp;
+    tg.expand()
+    
+    var item = "heliiiiiiiii";
+
+    Telegram.WebApp.onEvent("mainButtonClicked", function(){
+      tg.sendData(item);
+    })
+
+    document.getElementById("sendButton").addEventListener("click", function() {
+      var data = { score: 1111, level: 5 };
+      TelegramGameProxy.sendData(data);
+    });
     document.getElementById("sendButton").addEventListener("click", function() {
       var data = { score: 11112, level: 5 };
       TelegramGameProxy.sendData(data);
