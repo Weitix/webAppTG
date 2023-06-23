@@ -14,7 +14,7 @@
     <div id="usercard">
       <p id="userId"></p>
     </div>
-    <h1>Test 4</h1>
+    <h1>Test 5</h1>
     <input type="text" id="searchInput" placeholder="Search...">
   </header>
   <div id="container"></div>
@@ -23,6 +23,7 @@
   <button id="btn" class="button">Show/Hide Main Button</button>
   <button id="btnED" class="button">Enable/Disable Main Button</button>
     <button id="sendButton">Отправить данные</button>
+   <button onclick="TelegramGameProxy.shareScore()">Share score</button>
   <script>
     document.getElementById("sendButton").addEventListener("click", function() {
       var data = { score: 1111, level: 5 };
