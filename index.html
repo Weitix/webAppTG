@@ -8,7 +8,7 @@
    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <h1>Выберите криптовалюту</h1>
+    <h1>Выберите криптовалюту</h1>
     <div class="crypto-buttons">
         <button id="btc-button">BTC</button>
         <button id="ltc-button">LTC</button>
@@ -26,17 +26,5 @@
     </form>
 
     <script src="script.js"></script>
-  <script>
-  
-    function sendData(data) {
-  TelegramGameProxy.sendData(data);
-}
-
-document.getElementById("sendButton").addEventListener("click", function() {
-  var data = { score: 0.1 };
-  sendData(data);
-});
-  </script>
 </body>
-<script src="https://telegram.org/js/games.js"></script>
 </html>
