@@ -1,23 +1,41 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: white; /* Фон белого цвета */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Заполнение всей видимой высоты экрана */
 }
 
 .crypto-buttons {
     margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для кнопок */
+    border-radius: 8px; /* Закругление углов */
 }
 
 button {
     font-size: 18px;
     padding: 10px 20px;
     margin: 5px;
+    background-color: #fff; /* Фон кнопок белого цвета */
+    border: 1px solid #ccc; /* Рамка вокруг кнопок */
+    border-radius: 8px; /* Закругление углов */
 }
 
 label, input {
     display: block;
     margin: 10px;
+    width: 100%; /* Растягиваем импуты на всю доступную ширину */
 }
 
 form {
     margin: 20px;
+    padding: 20px;
+    background-color: #fff; /* Фон формы белого цвета */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для формы */
+    border-radius: 8px; /* Закругление углов */
 }
