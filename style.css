@@ -77,3 +77,27 @@ body {
     margin-top: 10px;
     text-align: center;
   }
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.crypto-buttons {
+    margin: 20px;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+label, input {
+    display: block;
+    margin: 10px;
+}
+
+form {
+    margin: 20px;
+}
