@@ -8,20 +8,24 @@
    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div id="usercard">
-      <p id="userId"></p>
+   <h1>Выберите криптовалюту</h1>
+    <div class="crypto-buttons">
+        <button id="btc-button">BTC</button>
+        <button id="ltc-button">LTC</button>
+        <button id="dash-button">DASH</button>
+        <button id="usdt-button">USDT</button>
     </div>
-    <h1>Test 555</h1>
-    <input type="text" id="searchInput" placeholder="Search...">
-  </header>
-  <div id="container"></div>
-  <a class="link" href="">Link</a>
-  <p class="hint">Some little hint</p>
-  <button id="btn" class="button">Show/Hide Main Button</button>
-  <button id="btnED" class="button">Enable/Disable Main Button</button>
-    <button id="sendButton">Отправить данные</button>
-    <button onclick="TelegramGameProxy.shareScore()">Share score</button>
+    <form id="crypto-form">
+        <label for="wallet-address">Введите ваш кошелек:</label>
+        <input type="text" id="wallet-address" required>
+        
+        <label for="amount">Введите сумму:</label>
+        <input type="text" id="amount" required>
+        
+        <button type="submit">Далее</button>
+    </form>
+
+    <script src="script.js"></script>
   <script>
   
     function sendData(data) {
