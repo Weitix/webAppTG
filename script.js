@@ -15,9 +15,14 @@ document.getElementById('usdt-button').addEventListener('click', function() {
     alert('Выбрана криптовалюта USDT');
 });
 
-// Обработчик для отправки формы
-document.getElementById('crypto-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузку страницы)
-    
+// Обработчик для кнопки "Далее"
+document.getElementById('next-button').addEventListener('click', function(event) {
+    event.preventDefault(); // Предотвращаем стандартное поведение кнопки
+
     // Получаем значения из полей формы
-    const walletAddress = document.getElementById
+    const walletAddress = document.getElementById('wallet-address').value;
+    const amount = document.getElementById('amount').value;
+
+    // Переходим на следующую страницу (index1.html)
+    window.location.href = 'index1.html';
+});
